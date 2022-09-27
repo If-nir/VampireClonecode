@@ -1,12 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class playerMove : MonoBehaviour
 {
+    public Slider playerHp_bar;
+
     SpriteRenderer playerRender;
     Animator playerAni;
+
+    //playerstatus
     public float playerspeed;
+    public float maxHp;
+    public float curHp;
+
+    public bool playerSpeedUp;
+    public bool isdead;
+    public bool W_dmOn;
     void Start()
     {
         //player Animator
@@ -16,11 +28,21 @@ public class playerMove : MonoBehaviour
 
         //player status
         playerspeed = 10.0f;
+        maxHp = 100;
+        curHp = maxHp;
+
+        //player condition
+        playerSpeedUp = false;
+        isdead = false;
+        W_dmOn = false;
     }
 
-    
     void Update()
     {
+        //player status
+        playerHp_bar.value = curHp / maxHp;
+
+
         //UP
         if (Input.GetKey(KeyCode.UpArrow))
         {
@@ -73,6 +95,38 @@ public class playerMove : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.LeftArrow))
         {
             playerAni.SetBool("iswalking", false);
+        }
+
+        if (Input.GetKey(KeyCode.Z))
+        {
+            W_dmOn = true;
+        }
+
+        else if (Input.GetKeyUp(KeyCode.Z))
+        {
+            W_dmOn = false;
+        }
+    }
+
+    //collision
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.name.Contains("E_LV1"))
+        {
+            curHp--;
+            if (curHp <= 0)
+            {
+                isdead = true;
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name.Contains("I_SpeedUp"))
+        {
+            Destroy(collision.gameObject);
+            playerspeed *=10;
         }
     }
 }
