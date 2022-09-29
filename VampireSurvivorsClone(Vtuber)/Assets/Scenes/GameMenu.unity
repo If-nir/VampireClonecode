@@ -619,6 +619,7 @@ GameObject:
   - component: {fileID: 616029853}
   - component: {fileID: 616029854}
   - component: {fileID: 616029855}
+  - component: {fileID: 616029856}
   m_Layer: 0
   m_Name: GameStartManager
   m_TagString: Untagged
@@ -681,6 +682,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   W_meleeWp: {fileID: 8768015807103420908, guid: 273a35a65cd58fb4e84b742f38a1e90d, type: 3}
   meleeDm: 0
+--- !u!114 &616029856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616029851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fbbbea6c40f2f3459c7ca3b11e52b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  E_bomb: {fileID: 715982393766212840, guid: 9bce9be041567cb4982f4f0d99124084, type: 3}
 --- !u!1 &948888831
 GameObject:
   m_ObjectHideFlags: 0
