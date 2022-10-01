@@ -8,8 +8,10 @@ public class W_meleeStatus : MonoBehaviour
     SpriteRenderer W_meleeRender;
     playerMove playerstauts;
     //meleeWp status
-    public float W_meleeAtk;
+    public float W_meleeAtk=30;
     public float W_drainHp;
+    float rotationWp;
+
     void Start()
     {
         W_meleeRender = this.GetComponent<SpriteRenderer>();
@@ -17,6 +19,7 @@ public class W_meleeStatus : MonoBehaviour
         playerstauts = GameObject.Find("player").GetComponent<playerMove>();
         //meleeWp set
         W_meleeAtk = 30;
+        rotationWp = 100f;
     }
 
 
@@ -27,6 +30,7 @@ public class W_meleeStatus : MonoBehaviour
         {
             W_meleeRender.flipX = true;
             this.transform.localPosition = new Vector3(2, 0, 0);
+            rotationWp = Mathf.Abs(rotationWp) * -1;
         }
 
         //LEFT
@@ -34,15 +38,18 @@ public class W_meleeStatus : MonoBehaviour
         {
             W_meleeRender.flipX = false;
             this.transform.localPosition = new Vector3(-2, 0, 0);
+            rotationWp = Mathf.Abs(rotationWp);
         }
         
         if (playerstauts.W_dmOn)
         {
             cd_W_melee.enabled = true;
+            transform.rotation *= Quaternion.Euler(0f, 0f, Time.deltaTime * rotationWp);
         }
         else
         {
             cd_W_melee.enabled = false;
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
     }
 
@@ -51,7 +58,6 @@ public class W_meleeStatus : MonoBehaviour
     {
         if (collision.gameObject.name.Contains("E_LV1"))
         {
-            Debug.Log("check");
             W_drainHp = (playerstauts.maxHp / 100) * 5;
             playerstauts.curHp += W_drainHp;
         }

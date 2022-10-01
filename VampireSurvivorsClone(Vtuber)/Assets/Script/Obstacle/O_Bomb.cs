@@ -9,26 +9,44 @@ public class O_Bomb : MonoBehaviour
     CircleCollider2D bomb_rn;
     SpriteRenderer changeColor;
 
-    float timecheck;
+    playerMove playerstatus;
 
     void Start()
     {
+        //bomb status read
         bombLockOn = this.gameObject.GetComponent<bombMove>();
         bombsize = this.gameObject.GetComponent<Transform>();
         bomb_rn = this.GetComponent<CircleCollider2D>();
         changeColor = this.GetComponent<SpriteRenderer>();
-        timecheck = 0;
+        bomb_rn.enabled = false;
+
+        //player status
+        playerstatus = GameObject.Find("player").GetComponent<playerMove>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-
-        if (bombLockOn.targetlockSet && bomb_rn.radius<0.6f)
+        if (bombLockOn.targetlockSet)
         {
-            changeColor.color=new Color(255,0,0,255);
-            bombsize.localScale += new Vector3(1.4f, 1.4f, 0);
-            bomb_rn.radius += 0.01f;
+            if (bomb_rn.radius < 0.6f)
+            {
+                bomb_rn.enabled = true;
+                changeColor.color = new Color(255, 0, 0, 255);
+                bombsize.localScale += new Vector3(1.4f, 1.4f, 0);
+                bomb_rn.radius += 0.01f;
+            }
+            else
+                Destroy(this.gameObject);
+        }
+    }
+
+    //collision
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name.Contains("player"))
+        {
+            playerstatus.curHp -= 30;
         }
     }
 }

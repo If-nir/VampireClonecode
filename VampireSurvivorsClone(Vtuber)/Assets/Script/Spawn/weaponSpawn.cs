@@ -8,6 +8,7 @@ public class weaponSpawn : MonoBehaviour
     public GameObject W_meleeWp;
     public float meleeDm;
     Transform target;
+
     void Start()
     {
         target = GameObject.Find("player").GetComponent<Transform>();

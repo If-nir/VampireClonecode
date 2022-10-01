@@ -16,7 +16,7 @@ public class bombSpawn : MonoBehaviour
     void Update()
     {
         spawnTime += Time.deltaTime;
-        if (spawnTime > 5.0f)
+        if (spawnTime > 15.0f)
         {
             float ranx = Random.Range(-25, 25);
             float rany = Random.Range(-25, 25);
