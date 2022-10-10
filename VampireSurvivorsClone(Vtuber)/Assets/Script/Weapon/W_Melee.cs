@@ -7,14 +7,18 @@ public class W_Melee : MonoBehaviour
     Collider2D cd_W_melee;
     SpriteRenderer W_meleeRender;
     Move_Player playerstauts;
+
     //meleeWp status
     public float W_meleeAtk=30;
     public float W_drainHp;
     float rotationWp;
     bool W_Dm_On;
 
+
+
     void Start()
     {
+
         W_meleeRender = this.GetComponent<SpriteRenderer>();
         cd_W_melee = this.GetComponent<Collider2D>();
         playerstauts = GameObject.Find("Player").GetComponent<Move_Player>();

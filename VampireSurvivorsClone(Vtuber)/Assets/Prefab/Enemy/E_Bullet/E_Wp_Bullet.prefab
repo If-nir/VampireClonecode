@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6118713576378410747}
   - component: {fileID: 5622290603589084802}
   m_Layer: 11
-  m_Name: E_BulletWp
+  m_Name: E_Wp_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

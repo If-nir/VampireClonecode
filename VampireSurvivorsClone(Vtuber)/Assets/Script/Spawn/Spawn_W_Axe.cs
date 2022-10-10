@@ -27,37 +27,37 @@ public class Spawn_W_Axe : MonoBehaviour
                 if (IsShoot == false && coolTime > 2.0f)
                 {
                     IsShoot = true;
-                    if (updateTime < 5) // Level_1
+                    if (updateTime < 0) // Level_1
                     {
-                        Instantiate(W_Axe, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+                        Instantiate(W_Axe, new Vector3(this.transform.position.x, this.transform.position.y,this.transform.position.z), Quaternion.identity);
                     }
                     else if (updateTime <= 10) // Level_2
                     {
-                        Instantiate(W_Axe, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
-                        Instantiate(W_Axe, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
-                        Instantiate(W_Axe, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+                        Instantiate(W_Axe, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+                        Instantiate(W_Axe, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+                        Instantiate(W_Axe, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
 
                     }
                     else if (updateTime <= 15) // Level_3
                     {
-                        Instantiate(W_Axe, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
-                        Instantiate(W_Axe, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
-                        Instantiate(W_Axe, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+                        Instantiate(W_Axe, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+                        Instantiate(W_Axe, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+                        Instantiate(W_Axe, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
 
                     }
                     else if (updateTime <= 20) // Level_4
                     {
-                        Instantiate(W_Axe, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
-                        Instantiate(W_Axe, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
-                        Instantiate(W_Axe, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+                        Instantiate(W_Axe, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+                        Instantiate(W_Axe, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+                        Instantiate(W_Axe, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
                     }
                     else // Level_5
                     {
-                        Instantiate(W_Axe, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
-                        Instantiate(W_Axe, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
-                        Instantiate(W_Axe, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
-                        Instantiate(W_Axe, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
-                        Instantiate(W_Axe, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+                        Instantiate(W_Axe, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+                        Instantiate(W_Axe, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+                        Instantiate(W_Axe, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+                        Instantiate(W_Axe, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+                        Instantiate(W_Axe, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
                     }
                     coolTime = 0f;
                 }

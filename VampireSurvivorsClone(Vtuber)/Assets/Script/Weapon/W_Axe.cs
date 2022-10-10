@@ -27,7 +27,7 @@ public class W_Axe : MonoBehaviour
         if (collision.gameObject.name.Contains("E_Bullet"))
         {
             Debug.Log("AxeDm: " + W_AxeAtk);
-            collision.GetComponent<Enemy_Bullet>().Cur_Hp -= W_AxeAtk;
+            collision.gameObject.GetComponent<Enemy_Bullet>().Cur_Hp -= W_AxeAtk;
         }
     }
 }
